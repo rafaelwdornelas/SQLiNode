@@ -1,0 +1,27 @@
+{
+  "name": "sqlinode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js  --timeout 200000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "array-unique": "^0.3.2",
+    "assert": "^1.4.1",
+    "cheerio": "^1.0.0-rc.2",
+    "cloudscraper": "^2.0.0",
+    "dns": "^0.2.2",
+    "get-hrefs": "^2.0.0",
+    "get-urls": "^8.0.0",
+    "line-by-line": "^0.1.6",
+    "node-xwhois": "^2.0.9",
+    "querystring": "^0.2.0",
+    "unfluff": "^3.2.0",
+    "url": "^0.11.0",
+    "url-parse": "^1.4.4"
+  }
+}

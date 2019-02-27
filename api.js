@@ -243,9 +243,18 @@ class sqlinode {
             // }
             url = url+'+ORDER+BY+1000'
             console.log("Injetando URL:", url)
+            //aguarda um minuto de timeout
+            var timeOut = setTimeout(function(){
+                console.log("Timeout")
+                resolve({retorno: false,
+                    errorbase: false,
+                    colunas: 0,
+                    dados: null})
+                    return;
+            },15000);
             request.get(url, function(error, response, body) {
                 if (error) {
-                    
+                    clearTimeout(timeOut)
                     resolve({retorno: false,
                         errorbase: false,
                         colunas: 0,
@@ -255,6 +264,7 @@ class sqlinode {
                 console.log("statusCode",response.statusCode)
                 console.log("protocolo",response.request.uri.protocol)
                 if(response.statusCode == 200){
+                    clearTimeout(timeOut)
                     console.log("Confirmando Erro...")
                     const vullcheck =  EncontraErro(body)
                     if (vullcheck == true) {
@@ -295,6 +305,7 @@ class sqlinode {
                         dados: null})
                     }
                 } else {
+                    clearTimeout(timeOut)
                     resolve({retorno: false,
                         errorbase: false,
                         colunas: 0,
@@ -304,6 +315,7 @@ class sqlinode {
             
             })
         } catch (err)  {
+            clearTimeout(timeOut)
             resolve({retorno: false,
                 errorbase: false,
                 colunas: 0,

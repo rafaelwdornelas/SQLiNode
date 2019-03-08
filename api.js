@@ -30,6 +30,7 @@ sql_errors1 = ['Convo Not found!','rowCount()', 'RecordCount()', 'ERROR:', 'Warn
         try {
             for  (var i = 0, len = sql_errors1.length; i < len; i++) {
                 if (body.indexOf(sql_errors1[i]) > -1 ) {
+                    console.log(sql_errors1[i])
                     return true
                 } 
             } 
@@ -48,6 +49,7 @@ sql_errors1 = ['Convo Not found!','rowCount()', 'RecordCount()', 'ERROR:', 'Warn
                         // JSON.parse() can throw an exception if not valid JSON
                         resolve({retorno: JSON.parse(EncontraErro(body)),id: JSON.parse(idx)});
                     } catch(e) {
+                        console.log("Geterro:",e)
                         reject(e);
                     }
                 });
@@ -75,12 +77,15 @@ sql_errors1 = ['Convo Not found!','rowCount()', 'RecordCount()', 'ERROR:', 'Warn
         return new Promise(async function(resolve, reject){
             try {
                 for  (i = 1; i < 50; i++) {
+                    console.log("GET: ",url+ i+"--")
                     await Geterro(url + i+"--",i).then(function(vullcheck) {
                         //console.log("BuscaIDColunas",vullcheck)
                         if (vullcheck.retorno === true) {
-                           
-                            console.log('Coluna Encontrada: '+(vullcheck.id- 1))
-                            SalvaRetorno(url + (i-1)+"--","colunaencontrada")
+                            if ((vullcheck.id- 1) > 0) {
+                                console.log('Coluna Encontrada: '+(vullcheck.id- 1))
+                                SalvaRetorno(url + (i-1)+"--","colunaencontrada")
+                            }
+                            
                             resolve({retorno: JSON.parse(true),id: JSON.parse(vullcheck.id - 1)});
                             i = 1000;
                             return;

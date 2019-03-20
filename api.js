@@ -270,7 +270,6 @@ class sqlinode {
                     const vullcheck =  EncontraErro(body)
                     if (vullcheck == true) {
                         console.log('Vulneravel: '+urltemp);
-                        SalvaRetorno(urltemp,"vulneravelporerro")
                         BuscaIDColunas(urltemp).then(function(retorno) {
                             console.log("BuscaIDColunas",retorno)
                             if (retorno.retorno === true && retorno.id > 0) {
